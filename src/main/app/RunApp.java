@@ -1,13 +1,10 @@
 package main.app;
 
-import course.advanced.topic.exceptions.CheckList;
-import course.advanced.topic.exceptions.UserOptions;
 import course.advanced.topic.exceptions.custom.PositionException;
 import course.advanced.topic.generics.Box;
 import course.advanced.topic.generics.BoxGeneric;
 
 import java.io.IOException;
-import java.util.Scanner;
 
 public class RunApp {
     public static void main(String[] args) throws IOException, PositionException {
@@ -30,8 +27,6 @@ public class RunApp {
 
         //MUESTRA ERROR Y NO PERMITE COMPILAR
         //String valsS = (String)bxG.getObject();
-
-
 
     }
 }
