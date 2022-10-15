@@ -10,6 +10,7 @@ public class LambdaCall {
 
         uO = (n)-> Math.pow(n,n);
         System.out.println("Potencia: "+uO.setValue(3.0));
+<<<<<<< HEAD
 
         BinaryOperator bO = (n,m)-> (Double)n*(Double) m;
         System.out.println("Multiplicacion: "+bO.setMultiply(2.2312, 92.1211));
@@ -28,5 +29,7 @@ public class LambdaCall {
         BinaryOperator<String> boGeneric = (n,m)->n.concat(m);
         System.out.println("Concatenation: "+boGeneric.setMultiply("XXXX","-YYYY"));
 
+=======
+>>>>>>> 021de9494bb1be47886276e03759e8320a33efd0
     }
 }
