@@ -10,5 +10,5 @@ package course.advanced.topic.lambda;
 //Nueva Interface Generica
 @FunctionalInterface
 public  interface BinaryOperator <T>{
-    T setMultiply(T val, T val2);
+    T setSum(T val, T val2);
 }

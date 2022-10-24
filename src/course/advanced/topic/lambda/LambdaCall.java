@@ -12,7 +12,7 @@ public class LambdaCall {
         System.out.println("Potencia: "+uO.setValue(3.0));
 
         BinaryOperator bO = (n,m)-> (Double)n*(Double) m;
-        System.out.println("Multiplicacion: "+bO.setMultiply(2.2312, 92.1211));
+        System.out.println("Multiplicacion: "+bO.setSum(2.2312, 92.1211));
 
 //Is required use "return" as a common block of code
         bO = (n,m)-> {
@@ -23,10 +23,10 @@ public class LambdaCall {
             return Math.pow(((Double)m*(Double)n),(Double)n);
         };
 
-        System.out.println("Values Binary Operator Complex: "+bO.setMultiply(2.0,6.0));
+        System.out.println("Values Binary Operator Complex: "+bO.setSum(2.0,6.0));
 
         BinaryOperator<String> boGeneric = (n,m)->n.concat(m);
-        System.out.println("Concatenation: "+boGeneric.setMultiply("XXXX","-YYYY"));
+        System.out.println("Concatenation: "+boGeneric.setSum("XXXX","-YYYY"));
 
     }
 }
