@@ -1,5 +1,7 @@
 package course.intermediate.topic.interfaces.example;
 
+import course.intermediate.topic.interfaces.colors.ColorsEnum;
+
 public class MoodEmotionsRun {
     /*
     Enum declaration cannot use an extends clause (extends implicity)
@@ -15,5 +17,7 @@ public class MoodEmotionsRun {
     public static void main(String[] args) {
         System.out.println("Good mood, laughing "+Mood.GOOD);
         System.out.println("Good mood, laughing "+Emotion.LAUGHING);
+
+        System.out.println("Vals: "+ ColorsEnum.TC_BLUE);
     }
 }

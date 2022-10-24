@@ -63,4 +63,9 @@ public enum ColorsEnum implements Colorful {
     public Color getColor() {
         return new Color(0, 0, 0);
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(getColor());
+    }
 }
