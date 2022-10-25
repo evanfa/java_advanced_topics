@@ -15,20 +15,8 @@ public class LambdaExamples {
         UnaryOperator<String> op3 = n->strVal+n;
         UnaryOperator<String> op4 = n->strVal_Local+n;
 
-        /*System.out.println("Op1:"+op1);
-        System.out.println("Op2:"+op2);
-        System.out.println("Op3:"+op3);
-        System.out.println("Op4:"+op4);
-         */
-
         dblVal = 8.0;
         strVal = "Bye";
-
-        /*System.out.println("Update-Op1:"+op1);
-        System.out.println("Update-Op2:"+op2);
-        System.out.println("Update-Op3:"+op3);
-        System.out.println("Update-Op4:"+op4);
-         */
 
         UnaryOperator<String> op1Nxt = n->{
             dblVal++;
@@ -52,7 +40,6 @@ public class LambdaExamples {
 
         //dblVal_Local = 10.0;
         //strVal_Local = "Night";
-
         op2Nxt.apply(String.valueOf(2.0));
     }
 

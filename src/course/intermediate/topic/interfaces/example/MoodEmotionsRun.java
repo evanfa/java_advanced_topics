@@ -19,5 +19,6 @@ public class MoodEmotionsRun {
         System.out.println("Good mood, laughing "+Emotion.LAUGHING);
 
         System.out.println("Vals: "+ ColorsEnum.TC_BLUE);
+        System.out.println("Vals: "+ ColorsEnum.BLUE_TARO);
     }
 }
