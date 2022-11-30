@@ -8,10 +8,13 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+/**
+ * Class - HTML Code Reader
+ */
 public class RunBasicUrl {
     public static void main(String[] args) {
         try {
-            URL urlT = new URL("http://es.wikipedia.org/");
+            URL urlT = new URL("https://es.wikipedia.org/");
             URL jInfo = new URL(urlT, "wiki/Wikipedia:Portada");
 
             System.out.println(
@@ -44,19 +47,15 @@ public class RunBasicUrl {
                             htpC.getLastModified()
             );
 
-
             InputStream inS = htpC.getInputStream();
             BufferedReader in = new BufferedReader(new InputStreamReader(inS));
+
             String lineR;
             while ((lineR = in.readLine())!= null){
-                System.out.println("Content: ");
                 System.out.println(lineR);
             }
-
             inS.close();
                 //in.close();
-
-
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }catch (IOException e) {
