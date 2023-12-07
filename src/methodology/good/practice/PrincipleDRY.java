@@ -8,8 +8,6 @@ package methodology.good.practice;
  *
  */
 
-import methodology.good.practice.exception.NoFoundException;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -17,11 +15,12 @@ import java.util.regex.Pattern;
 
 public class PrincipleDRY {
 
-    private static final String REGEX_DATE_ENG = "((January|Febuary|March|April|May|June|July|August|September|October|November|December|Enero|Febrero|Marzo|Abril|Mayo|Junio|Julio|Agosto|Septiembre|Septiembrre|Saptiembre|Octubre|Octubr|Ocutubre|Noviembre|Diciembre|Decembere).([0-9]{1,2}).*(\\d{2,4}))";
+    //private static final String REGEX_DATE_ENG = "((January|Febuary|March|April|May|June|July|August|September|October|November|December|Enero|Febrero|Marzo|Abril|Mayo|Junio|Julio|Agosto|Septiembre|Septiembrre|Saptiembre|Octubre|Octubr|Ocutubre|Noviembre|Diciembre|Decembere).([0-9]{1,2}).*(\\d{2,4}))";
+    private static final String REGEX_DATE_ENG = "\\w+[a-zA-Z]";
     private static final List<String> lstMonths = Arrays.asList("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre",
             "Jan", "Ene", "Feb", "Mar", "Apr", "Abr", "May", "Jun", "Jul", "Aug", "Ago", "Sep", "Oct", "Nov", "Dec", "Dic");
 
-    private Pattern pattern = Pattern.compile(REGEX_DATE_ENG, Pattern.CASE_INSENSITIVE);
+    private final Pattern pattern = Pattern.compile(REGEX_DATE_ENG, Pattern.CASE_INSENSITIVE);
 
     public void noDryPrinciple(String textToReview) {
         String rstString = "";
@@ -31,7 +30,8 @@ public class PrincipleDRY {
         if (matcher.find()) {
 
             for (String lst : lstMonths) {
-                if (matcher.group(2).equals(lst)) {
+                //if (matcher.group(2).equals(lst)) {
+                //if (.equals(lst)) {
                     if (lst.equals("January") || lst.equals("Enero") || lst.equals("Ene") || lst.equals("Jan")) {
                         montString = "01";
                     }
@@ -72,7 +72,7 @@ public class PrincipleDRY {
             }
         }
 
-        try {
+        /*try {
             if (matcher.group(2).length() == 4) {
                 rstString = rstString.concat("20" + matcher.group(4)).concat("-").concat(montString).concat("-").concat(matcher.group(3));
                 System.out.println("Year: " + rstString);
@@ -82,24 +82,25 @@ public class PrincipleDRY {
             pE.initCause(e);
         }
 
-    }
+    }*/
 
     public void dryPrinciple(String textToReview) {
-        String rstString = "";
-        String montString = "";
-        Matcher matcher = pattern.matcher(textToReview);
-
-
-        //lstMonths
-
+        String foundWord = null;
+        Pattern pattern = Pattern.compile("\\w+[a-zA-Z]");
         for (String lst : lstMonths) {
             try {
-                if (matcher.group(2).equals(lst)) {
-                    System.out.println("Result: " + matcher.group(2));
+                Matcher matcher = pattern.matcher(textToReview);
+                if (matcher.find()) {
+                    foundWord = matcher.group();
+                    System.out.println("Match Found: "+lstMonths.indexOf(foundWord));
                 }
-            } catch (Exception e) {
-                System.out.println("Exception DRY e: " + e);
+                System.out.println("Matcher: "+matcher);
+                System.out.println("Found: "+foundWord);
+            }catch (Exception ex){
+                System.out.println("Exceptions: "+ex);
             }
+
+
         }
     }
 }
