@@ -2,7 +2,6 @@ package course.advanced.topic.exceptions;
 
 import course.advanced.topic.exceptions.custom.PositionException;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class UserOptions {
@@ -22,17 +21,13 @@ public class UserOptions {
         int option;
 
         do{
-
             System.out.println("Out 0...");
             System.out.println("Insert index: ");
             option = scan.nextInt();
-
             if(option!=0){
                 displayElements(option);
             }
-
         }while(option!=0);
-
     }
 
     private void displayElements(int index) throws PositionException {
